@@ -4,13 +4,7 @@ import java.security.MessageDigest;
 
 /**
  * ClassName:Md5Utils <br/>
- * Function: TODO ADD FUNCTION. <br/>
- * Reason:   TODO ADD REASON. <br/>
- * Date:     2015-1-15 下午1:27:25 <br/>
- *
- * @author 822
- * @see
- * @since JDK 1.6
+ * @author Tyler
  */
 public class Md5Utils {
     public static String md5(String s) throws Exception {

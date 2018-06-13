@@ -17,11 +17,10 @@ import com.wytone.util.SessionUtils;
 import com.wytone.util.WeiXinUtils;
 
 /**
- * <p>Title: LuckyMoneyController</p>
- * <p>Description: 发红包</p>
- * <p>Company: caimei365</p>
+ * Title: LuckyMoneyController
+ * Description: 发红包
  *
- * @author userwyh
+ * @author Tyler
  * @date 2015年12月28日 下午3:14:20
  */
 @Controller
@@ -33,12 +32,11 @@ public class LuckyMoneyController extends BaseController {
     private final static Pattern PATTERN = Pattern.compile("^((13[0-9])|(15[^4,\\D])|(18[0,5-9]))\\d{8}$");
 
     /**
-     * <p>Description: 去报名领取红包
+     * Description: 去报名领取红包
      *
      * @return
      * @throws Exception
-     * @author userwyh
-     * @date 2015年12月28日 下午3:54:23
+     * @author Tyler
      */
     @RequestMapping("/signup")
     public String signup() throws Exception {
@@ -70,8 +68,7 @@ public class LuckyMoneyController extends BaseController {
      * @param mobile 注册手机号
      * @return
      * @throws Exception
-     * @author userwyh
-     * @date 2015年12月28日 下午3:53:24
+     * @author Tyler
      */
     @ResponseBody
     @RequestMapping("init")

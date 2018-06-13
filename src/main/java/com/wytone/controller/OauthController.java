@@ -16,11 +16,10 @@ import com.wytone.util.SessionUtils;
 import com.wytone.util.WeiXinUtils;
 
 /**
- * <p>Title: OauthController</p>
- * <p>Description:微信授权入口 </p>
+ * Title: OauthController
+ * Description:微信授权入口
  *
- * @author userwyh
- * @date 2015年11月24日 下午1:22:06
+ * @author Tyler
  */
 @Controller
 @RequestMapping("/wechat")

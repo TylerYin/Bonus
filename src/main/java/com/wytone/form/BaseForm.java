@@ -4,7 +4,7 @@ package com.wytone.form;
  * <p>Title: BaseForm</p>
  * <p>Description: 基础参数</p>
  *
- * @author userwyh
+ * @author Tyler
  * @date 2015年11月20日 上午10:03:28
  */
 public class BaseForm {

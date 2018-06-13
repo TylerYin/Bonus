@@ -3,9 +3,9 @@ package com.wytone.constants;
 
 
 /**
- * <p>Title: ShareState</p>
- * <p>Description: 微信分享state</p>
- * @author userwyh
+ * Title: ShareState
+ * Description: 微信分享state
+ * @author Tyler
  */
 public enum ShareState {
 	/**

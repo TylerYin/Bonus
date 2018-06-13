@@ -33,11 +33,8 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 
 /**
- * @author 王永煌
+ * @author Tyler
  * @version 1.0
- * 深圳市采美信息技术有限公司
- * @date 2015年3月5日
- * @time 上午11:53:40
  */
 public class HongBaoUtils {
     /**

@@ -11,11 +11,7 @@ import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
 /**
- * @author 王永煌
- * @version 1.0
- * 深圳市采美信息技术有限公司
- * @date 2015年3月5日
- * @time 下午4:10:25
+ * @author Tyler
  */
 public class XmlUtils {
     /**
