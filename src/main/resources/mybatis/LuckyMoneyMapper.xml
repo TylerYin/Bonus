@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wytone.mapper.LuckyMoneyMapper" >
+    <!-- 是否已经领取过红包 -->
+    <select id="existSendRecord" parameterType="java.util.Map" resultType="Integer">
+        <if test="openid != null" >
+           select count(*) from cm_hongbao where openid = #{openid}  and result = 1 
+        </if>
+        <if test="mobile != null" >
+           select count(*) from cm_hongbao where mobile = #{mobile}  and result = 1 
+        </if>
+	</select>
+	
+	<!-- 根据手机号查询会所的用户ID -->
+	<select id="selectClubUserIDbyMobile" parameterType="String" resultType="Integer">
+		 select user.userID from user,club where user.userID = club.userID and user.mobile = #{mobile} and user.registerUserTypeID = 3 and club.status = 90
+	</select>
+	
+	<!-- 查询微信号和网站账号绑定信息 -->
+	<select id="selectBindInfo" parameterType="java.util.Map" resultType="Integer">
+		 select count(*) from cm_bind where openid = #{openid} and userID =#{userID}
+	</select>
+	
+	<!-- 查询商户红包余额 -->
+	<select id="selectCHongbao" resultType="com.wytone.po.Balance">
+		 select * from c_hongbao
+	</select>
+</mapper>

@@ -1,0 +1,10 @@
+/*app.css*/
+body{padding-bottom:15px;}
+.page-header{margin-top:10px;margin-bottom:10px;}
+.card-content{padding-top:15px;}
+.card-detail{padding-top:15px;}
+.tab-content{padding-top:15px;}
+
+.btn-current{color:#333;background-color:#e6e6e6;border-color:#adadad;}
+.tt{margin:20px 0;font-size:16px;font-weight:bold;text-align:left;}
+.desc{margin:10px 0 35px;color:red;}
