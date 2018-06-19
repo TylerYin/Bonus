@@ -18,7 +18,7 @@
 	<bean id="configProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
         <property name="locations">
             <list>
-                <value>classpath:wytone.properties</value>
+                <value>classpath:bonus.properties</value>
             </list>
         </property>
     </bean>
@@ -30,18 +30,18 @@
 	<!-- 使Spring关注Annotation -->
     <context:annotation-config/>
 	<!-- 让Spring通过自动扫描来查询和管理Bean -->
-	<context:component-scan base-package="com.wytone" />
+	<context:component-scan base-package="com.bonus" />
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
-		<property name="driverClassName" value="${wytone.database.driverClassName}" />
-		<property name="url" value="${wytone.database.url}" />
-		<property name="username" value="${wytone.database.user}" />
-		<property name="password" value="${wytone.database.password}" />
+		<property name="driverClassName" value="${bonus.database.driverClassName}" />
+		<property name="url" value="${bonus.database.url}" />
+		<property name="username" value="${bonus.database.user}" />
+		<property name="password" value="${bonus.database.password}" />
 		<property name="maxActive">
-			<value>${wytone.database.maxActive}</value>
+			<value>${bonus.database.maxActive}</value>
 		</property>
 		<property name="maxIdle">
-			<value>${wytone.database.maxIdle}</value>
+			<value>${bonus.database.maxIdle}</value>
 		</property>
 		<property name="maxWait">
 			<value>10000</value>
@@ -66,12 +66,12 @@
         UserMapper.xml位于mybatis包下，这样UserMapper.xml就可以被自动扫描
          -->
         <property name="mapperLocations" value="classpath*:mybatis/**/*.xml" />
-        <property name="typeAliasesPackage" value="com.wytone.po" />
+        <property name="typeAliasesPackage" value="com.bonus.po" />
     </bean>
     <!-- 配置扫描器 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <!-- 扫描com.wytone.mapper这个包以及它的子包下的所有映射接口类 -->
-        <property name="basePackage" value="com.wytone.mapper" />
+        <!-- 扫描com.bonus.mapper这个包以及它的子包下的所有映射接口类 -->
+        <property name="basePackage" value="com.bonus.mapper" />
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
     </bean>
 

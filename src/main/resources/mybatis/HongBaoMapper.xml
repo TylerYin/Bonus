@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.wytone.mapper.HongBaoMapper" >
-  <resultMap id="BaseResultMap" type="com.wytone.po.HongBao" >
+<mapper namespace="com.bonus.mapper.HongBaoMapper" >
+  <resultMap id="BaseResultMap" type="com.bonus.po.Bonus" >
     <id column="hongBaoId" property="hongBaoId" jdbcType="INTEGER" />
     <result column="addTime" property="addTime" jdbcType="TIMESTAMP" />
     <result column="amount" property="amount" jdbcType="INTEGER" />
@@ -10,7 +10,8 @@
     <result column="result" property="result" jdbcType="INTEGER" />
     <result column="mobile" property="mobile" jdbcType="CHAR" />
   </resultMap>
-  <insert id="insertSelective" parameterType="com.wytone.po.HongBao" >
+
+  <insert id="insertSelective" parameterType="com.bonus.po.Bonus" >
     insert into cm_hongbao
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="hongBaoId != null" >
@@ -38,6 +39,7 @@
         remark,
       </if>
     </trim>
+
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="hongBaoId != null" >
         #{hongBaoId,jdbcType=INTEGER},
@@ -65,7 +67,8 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.wytone.po.HongBao" >
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.bonus.po.Bonus" >
     update cm_hongbao
     <set >
       <if test="addTime != null" >

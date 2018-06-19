@@ -40,13 +40,13 @@
     <bean id="xmlAwareForm_hmc" class="org.springframework.http.converter.xml.XmlAwareFormHttpMessageConverter" /><!-- 处理.. -->
     <bean id="jaxb2RootElement_hmc" class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter" /><!-- 处理.. -->
     <bean id="jackson_hmc" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" /><!-- 处理json-->
-	
+
 	<!-- 采用SpringMVC自带的JSON转换工具，支持@ResponseBody注解 -->
 	<bean
 		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
 		<property name="messageConverters">
 			<list>
-				<ref bean="jackson_hmc" />    <!-- JSON转换器 -->
+				<ref bean="jackson_hmc" />
 			</list>
 		</property>
 	</bean>
@@ -56,14 +56,17 @@
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="viewClass"
 			value="org.springframework.web.servlet.view.JstlView" />
-		<property name="prefix" value="/luckymoney/jsp/"></property>
+		<property name="prefix" value="/jsp/"></property>
 		<property name="suffix" value=".jsp"></property>
 	</bean>
 	
 	<!-- start开启注释 -->
-	<context:component-scan base-package="com.wytone.controller" />
+	<context:component-scan base-package="com.bonus.controller" />
 	<!-- end开始注释 -->
-	
+
+    <!--<mvc:default-servlet-handler/>-->
+	<!--<mvc:resources mapping="/static/**" location="/static/js" cache-period="31536000"/>-->
+
 	<!-- 完成请求和注解POJO的映射 -->
     <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
     
