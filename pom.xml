@@ -3,12 +3,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.wytone</groupId>
+	<groupId>com.bonus</groupId>
 	<version>0.0.1-SNAPSHOT</version>
-	<artifactId>luckymoney</artifactId>
+	<artifactId>bonus</artifactId>
 	<packaging>war</packaging>
-	<name>luckymoney</name>
-	<url>http://www.wytone.com</url>
+	<name>bonus</name>
+	<url>http://www.bonus.com</url>
 
 	<properties>
 		<!-- 设定项目的编码格式 -->
@@ -20,7 +20,7 @@
 	</properties>
 
 	<build>
-		<finalName>luckymoney</finalName>
+		<finalName>bonus</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
