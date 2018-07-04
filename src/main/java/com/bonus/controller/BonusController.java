@@ -35,22 +35,27 @@ public class BonusController extends BaseController {
      */
     @RequestMapping("/init")
     public String gainBonus(String qrcode) throws Exception {
-        SessionUtils.setAttribute(WeiXinUtils.OPENID_KEY, "oVTYvt3wsDfxCTSyo");
-        Object openid = SessionUtils.getAttribute(WeiXinUtils.OPENID_KEY);
+        //测试用，后续应该删除
+        qrcode = WeiXinUtils.QR_CODE;
+        String openid = WeiXinUtils.OPEN_ID;
+        //Object openid = SessionUtils.getAttribute(WeiXinUtils.OPENID_KEY);
+
+        //没有获取到openid 重新授权进入
         if (openid == null) {
-            //没有获取到openid 重新授权进入
-            String reOauth = WeiXinUtils.getOauthLinkURL(ShareState.LUCKYMONEY.getDesc());
+            String reOauth = WeiXinUtils.getOauthLinkURL(ShareState.BONUS.getDesc());
             return "redirect:" + reOauth;
         }
 
         Map<String, Object> params = new HashMap<>(10);
         params.put("openid", openid);
 
+        //TODO
         //是否已经发送过红包记录
-        boolean existRecord = bonusService.existSendRecord(params);
+        //boolean existRecord = bonusService.existSendRecord(params);
+        //getRequest().setAttribute("existRecord", existRecord);
+
         getRequest().setAttribute("qrcode", qrcode);
         getRequest().setAttribute("openid", openid);
-        getRequest().setAttribute("existRecord", existRecord);
         return "gainBonus";
     }
 
@@ -72,28 +77,33 @@ public class BonusController extends BaseController {
         Map<String, Object> result = new HashMap<>(10);
         int code = 0;
         if (code == 0) {
-            Object openID = SessionUtils.getAttribute(WeiXinUtils.OPENID_KEY);
+
+            //测试用，后续应该删除
+            //Object openID = SessionUtils.getAttribute(WeiXinUtils.OPENID_KEY);
+            Object openID = WeiXinUtils.OPEN_ID;
             if (openID == null) {
                 result.put("syserr", "用户信息丢失,请重新进入");
                 code = 2;
             } else {
                 Map<String, Object> params = new HashMap<>(10);
                 params.put("qrcode", qrcode);
-                boolean existRecord = bonusService.existSendRecord(params);
-                if (!existRecord) {
-                    try {
-                        boolean sendResult = bonusService.sendLuckyMoney((String) openID, qrcode);
-                        if (!sendResult) {
-                            result.put("wechaterr", "通过微信发送红包失败");
-                            code = 2;
-                        }
-                    } catch (Exception e) {
-                        result.put("syserr", e.getMessage());
+
+                //TODO, 后续应该打开这段代码，防止重复领取红包
+//                boolean existRecord = bonusService.existSendRecord(params);
+//                if (!existRecord) {
+                try {
+                    boolean sendResult = bonusService.sendBonus((String) openID, qrcode);
+                    if (!sendResult) {
+                        result.put("wechaterr", "通过微信发送红包失败");
                         code = 2;
                     }
-                } else {
-                    code = 3;
+                } catch (Exception e) {
+                    result.put("syserr", e.getMessage());
+                    code = 2;
                 }
+//                } else {
+//                    code = 3;
+//                }
             }
         }
         result.put("code", code);

@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="Bonus:war exploded">
-    <output-path>$PROJECT_DIR$/classes/artifacts/Bonus_war_exploded</output-path>
+  <artifact type="exploded-war" name="bonus:war exploded">
+    <output-path>$PROJECT_DIR$/target/bonus</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
@@ -84,7 +84,9 @@
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.1.0" />
         </element>
       </element>
-      <element id="library" level="module" name="Maven: javax.sql:jdbc-stdext:2.0" module-name="Bonus" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/bonus/META-INF/MANIFEST.MF" />
+      </element>
       <element id="javaee-facet-resources" facet="bonus/web/Web" />
     </root>
   </artifact>

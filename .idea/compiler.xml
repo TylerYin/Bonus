@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Bonus" />
+        <module name="bonus" />
         <module name="luckymoney" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="bonus" target="1.7" />
       <module name="Bonus" target="1.7" />
       <module name="luckymoney" target="1.7" />
     </bytecodeTargetLevel>

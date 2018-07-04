@@ -8,9 +8,9 @@ package com.bonus.constants;
  */
 public enum ShareState {
 	/**
-	 * luckymoney
+	 * bonus
 	 */
-	LUCKYMONEY("luckymoney");
+	BONUS("bonus");
 
 	private String desc;
 

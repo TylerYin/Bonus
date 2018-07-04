@@ -44,9 +44,9 @@ public class Bonus implements Serializable {
     private Integer result;
 
     /**
-     * 手机号
+     * 防伪码
      */
-    private String mobile;
+    private String qrcode;
 
     public Long getHongBaoId() {
         return hongBaoId;
@@ -104,11 +104,11 @@ public class Bonus implements Serializable {
         this.result = result;
     }
 
-    public String getMobile() {
-        return mobile;
+    public String getQrcode() {
+        return qrcode;
     }
 
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
+    public void setQrcode(String qrcode) {
+        this.qrcode = qrcode;
     }
 }

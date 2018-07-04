@@ -19,7 +19,7 @@ import net.sf.json.JSONObject;
 public class JsonUtils {
     public static List<Map<String, Object>> parseJSON2List(String jsonStr) {
         JSONArray jsonArr = JSONArray.fromObject(jsonStr);
-        List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+        List<Map<String, Object>> list = new ArrayList<>();
         Iterator<JSONObject> it = jsonArr.iterator();
         while (it.hasNext()) {
             JSONObject json2 = it.next();
@@ -38,7 +38,7 @@ public class JsonUtils {
 
             //如果内层还是数组的话，继续解析
             if (v instanceof JSONArray) {
-                List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+                List<Map<String, Object>> list = new ArrayList<>();
                 Iterator<JSONObject> it = ((JSONArray) v).iterator();
                 while (it.hasNext()) {
                     JSONObject json2 = it.next();
@@ -52,9 +52,14 @@ public class JsonUtils {
         return map;
     }
 
+    /**
+     * 通过HTTP获取JSON数据
+     *
+     * @param url
+     * @return
+     */
     public static List<Map<String, Object>> getListByUrl(String url) {
         try {
-            //通过HTTP获取JSON数据
             InputStream in = new URL(url).openStream();
             BufferedReader reader = new BufferedReader(new InputStreamReader(in));
             StringBuilder sb = new StringBuilder();
@@ -69,9 +74,14 @@ public class JsonUtils {
         return null;
     }
 
+    /**
+     * 通过HTTP获取JSON数据
+     *
+     * @param url
+     * @return
+     */
     public static Map<String, Object> getMapByUrl(String url) {
         try {
-            //通过HTTP获取JSON数据
             InputStream in = new URL(url).openStream();
             BufferedReader reader = new BufferedReader(new InputStreamReader(in, "utf-8"));
             StringBuilder sb = new StringBuilder();
@@ -97,5 +107,3 @@ public class JsonUtils {
         System.out.println(list);
     }
 }
-
-	

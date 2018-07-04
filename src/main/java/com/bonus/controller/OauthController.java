@@ -19,7 +19,7 @@ import com.bonus.util.WeiXinUtils;
  * @author Tyler
  */
 @Controller
-@RequestMapping("/weChat")
+@RequestMapping("/wechat")
 public class OauthController extends BaseController {
 
     private final static String OPEN_ID = "openid";
@@ -34,15 +34,18 @@ public class OauthController extends BaseController {
 
             String url = WeiXinUtils.getUrl().replace("CODE", code);
             Map<String, Object> map = JsonUtils.getMapByUrl(url);
-            if (map.get(OPEN_ID) != null) {
-                if (ShareState.LUCKYMONEY.getDesc().equals(state)) {
-                    SessionUtils.setAttribute(WeiXinUtils.OPENID_KEY, map.get("openid").toString());
-                    return "redirect:/bonus/init";
-                }
+
+            /**
+             * 若要获取用户的相关信息，可以在这个map中拿到access_token，使用access_token和open_id来获取用户的相关信息，但是需要在WeiXinUtils类中将nsapi_base修改为snsapi_userinfo，
+             * 具体调用地址见微信开发文档，https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140842
+             */
+            if (map.get(OPEN_ID) != null && ShareState.BONUS.getDesc().equals(state)) {
+                SessionUtils.setAttribute(WeiXinUtils.OPENID_KEY, map.get("openid").toString());
+                return "redirect:/bonus/init";
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "/error";
+        return "error";
     }
 }
