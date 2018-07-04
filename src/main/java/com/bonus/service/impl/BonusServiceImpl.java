@@ -73,7 +73,7 @@ public class BonusServiceImpl implements BonusService {
             logger.info("微信发送红包处理结果:" + responseXML);
 
             Map<String, String> resultMap = XmlUtils.parseXml(responseXML);
-            String returnCode = resultMap.get("return_code").toString();
+            String returnCode = resultMap.get("result_code").toString();
             if (SUCCESS.equals(returnCode)) {
                 bonus.setResult(BonusUtils.SUCCESS);
             }
