@@ -40,7 +40,7 @@ public class OauthController extends BaseController {
              * 具体调用地址见微信开发文档，https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140842
              */
             if (map.get(OPEN_ID) != null && ShareState.BONUS.getDesc().equals(state)) {
-                SessionUtils.setAttribute(WeiXinUtils.OPENID_KEY, map.get("openid").toString());
+                SessionUtils.setAttribute("openid", map.get("openid").toString());
                 return "redirect:/bonus/init";
             }
         } catch (Exception e) {

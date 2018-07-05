@@ -28,4 +28,15 @@ public interface BonusService {
      * @author Tyler
      */
     boolean existSendRecord(Map<String, Object> params);
+
+    /**
+     * @param openid
+     * @param amount
+     * @param qrcode
+     * @param desc
+     * @return
+     * @Description：微信支付，企业向个人付款
+     * @author Tyler
+     */
+    Map<String, String> transfer(String openid, String appId, String mchId, String qrcode, int amount, String desc);
 }

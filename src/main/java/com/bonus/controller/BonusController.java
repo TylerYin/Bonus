@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import com.bonus.util.ConfigUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -36,11 +37,11 @@ public class BonusController extends BaseController {
     @RequestMapping("/init")
     public String gainBonus(String qrcode) throws Exception {
         //测试用，后续应该删除
-        qrcode = WeiXinUtils.QR_CODE;
-        String openid = WeiXinUtils.OPEN_ID;
+        qrcode = ConfigUtils.getConfig("bonus.qrcode");
+        String openid = ConfigUtils.getConfig("bonus.wechat.openid");
         //Object openid = SessionUtils.getAttribute(WeiXinUtils.OPENID_KEY);
 
-        //没有获取到openid 重新授权进入
+        //没有获取到openid, 重新授权进入
         if (openid == null) {
             String reOauth = WeiXinUtils.getOauthLinkURL(ShareState.BONUS.getDesc());
             return "redirect:" + reOauth;
@@ -77,10 +78,9 @@ public class BonusController extends BaseController {
         Map<String, Object> result = new HashMap<>(10);
         int code = 0;
         if (code == 0) {
-
             //测试用，后续应该删除
             //Object openID = SessionUtils.getAttribute(WeiXinUtils.OPENID_KEY);
-            Object openID = WeiXinUtils.OPEN_ID;
+            Object openID = ConfigUtils.getConfig("bonus.wechat.openid");
             if (openID == null) {
                 result.put("syserr", "用户信息丢失,请重新进入");
                 code = 2;
@@ -108,5 +108,13 @@ public class BonusController extends BaseController {
         }
         result.put("code", code);
         return result;
+    }
+
+    @ResponseBody
+    @RequestMapping("transfer")
+    public Map<String, String> transfer(String qrcode) throws Exception {
+        Object openID = ConfigUtils.getConfig("bonus.wechat.openid");
+        Map<String, String> resultMap = bonusService.transfer(openID.toString(), ConfigUtils.getConfig("bonus.app.id"), ConfigUtils.getConfig("bonus.mch.id"), qrcode, 30, ConfigUtils.getConfig("bonus.detail"));
+        return resultMap;
     }
 }
