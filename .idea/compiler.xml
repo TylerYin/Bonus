@@ -12,7 +12,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="bonus" target="1.7" />
+      <module name="bonus" target="1.5" />
       <module name="Bonus" target="1.7" />
       <module name="luckymoney" target="1.7" />
     </bytecodeTargetLevel>
