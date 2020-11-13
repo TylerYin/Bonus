@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="bonus@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="bonus">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="codes"/>
+    <schema id="4" parent="1" name="fwzs"/>
+    <schema id="5" parent="1" name="fwzs_huoguo"/>
+    <schema id="6" parent="1" name="fwzs_shoutao"/>
+    <schema id="7" parent="1" name="fwzs_zhongzi"/>
+    <schema id="8" parent="1" name="information_schema"/>
+    <schema id="9" parent="1" name="jfsc"/>
+    <schema id="10" parent="1" name="mds4000ii_qjg"/>
+    <schema id="11" parent="1" name="mysql"/>
+    <schema id="12" parent="1" name="performance_schema"/>
+    <schema id="13" parent="1" name="sakila"/>
+    <schema id="14" parent="1" name="sys"/>
+    <schema id="15" parent="1" name="world"/>
+  </database-model>
+</dataSource>
